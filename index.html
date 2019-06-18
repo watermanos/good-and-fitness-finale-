@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<title> Goodlife and Fitness</title>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="csscode/menunavbar.css">
+<link rel="stylesheet" type="text/css" href="csscode/body.css">
+<link rel="stylesheet" type="text/css" href="csscode/footer.css">
+<link rel="stylesheet" type="text/css" href="csscode/inputstyle.css">
+<link rel="stylesheet" type="text/css" href="csscode/slidestyle.css">
+
+
+<style>
+
+</style>
+
+</head>
+<body>
+<h1 align="center" style="color:white; font-size=20px;"> Goodlife and Fitness</h1>
+<div class="navbar">
+	<a href="index.html">Αρχική</a>
+	<div class="dropdown">
+		<button class="dropbtn">Συνταγές</button>
+		<div class="dropdown-content">
+			<a href="recipes/breakfast.html">Πρωινό</a>
+			<a href="recipes/lunch.html">Μεσημεριανό</a>
+			<a href="recipes/dinner.html">Βραδινό</a>
+			<a href="recipes/vegeterian.html">Vegeterian</a>
+			<a href="recipes/aftergym.html">Γυμναστικής</a>
+
+		</div>
+		</div>
+		
+	<a href="gym/gym.html">EY ZHN</a></button>
+	<a href="xrisima.html">Μετρητές</a></button>
+	</div>
+
+
+	<br><br><br>
+<h4>ΤΑΣΕΙΣ ΖΩΗΣ</h4>	
+<table style="float:center">
+		<tr>
+			
+			<th>ΜΙΚΡΑ ΣΝΑΚΣ</th>
+			<th>12 συμβουλές για καλή ζωή </th>
+			<th>Aπομυθοποίση του αυγού</th>
+		</tr>
+		<tr>
+			
+			<td><a href="gym/snacks.html"><img src="recipbreak/applechips.jpg"></a></td>
+			<td><a href="gym/dwdeka.html"><img src="gym/dwdeka.jpg"></a></td>
+			<td><a href="gym/egg.html"><img src="gym/egg.jpg"></a></td>
+			
+	</table>
+<br><br>
+<h4>ΟΙ ΚΑΛΥΤΕΡΕΣ ΣΥΝΤΑΓΕΣ </h4>
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <a href="recipbreak/poteinyogurt.html"><img src="recipbreak/giaourtoglyko.jpg" style="width:50%"></a>
+  <div class="text">ΓΙΑΟΥΡΤΟΓΛΥΚΟ</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <a href="recipbreak/manitaropita.html"><img src="recipbreak/manitaropita.jpg" style="width:50%"></a>
+  <div class="text">ΜΑΝΙΤΑΡΟΠΙΤΑ</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <a href="recipbreak/pancakes.html"><img src="recipbreak/pancakes.jpg" style="width:50%"></a>
+  <div class="text">PANCAKES</div>
+</div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+<br><br>
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 5000); 
+}
+</script>
+
+<br>
+	
+
+
+<footer>
+  <p>Created by: Wa.Sha.</p>
+  <p>Contact information: <a href="mailto:ibrisn@yahoo.com">ibrisn@yahoo.com</a>.</p>
+</footer>
+</body>
+</html>

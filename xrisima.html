@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html>
+<title> Goodlife and Fitness</title>
+<head>
+<link rel="stylesheet" type="text/css" href="csscode/menunavbar.css">
+<link rel="stylesheet" type="text/css" href="csscode/body.css">
+<link rel="stylesheet" type="text/css" href="csscode/footer.css">
+<link rel="stylesheet" type="text/css" href="csscode/inputstyle.css">
+
+
+<style>
+
+</style>
+
+</head>
+<body>
+<h1 align="center" style="color:white; font-size=20px;"> Goodlife and Fitness</h1>
+<div class="navbar">
+	<a href="index.html">Αρχική</a>
+	<div class="dropdown">
+		<button class="dropbtn">Συνταγές</button>
+		<div class="dropdown-content">
+			<a href="recipes/breakfast.html">Πρωινό</a>
+			<a href="recipes/lunch.html">Μεσημεριανό</a>
+			<a href="recipes/dinner.html">Βραδινό</a>
+			<a href="recipes/vegeterian.html">Vegeterian</a>
+			<a href="recipes/aftergym.html">Γυμναστικής</a>
+
+		</div>
+		</div>
+	<a href="gym/gym.html">EY ZHN</a></button>
+	<a href="xrisima.html">Μετρητές</a></button>	
+	</div>
+	<br>
+	
+<br>
+<h3 style="text-align:center;">Υπολογισμός με μία μεζούρα το ποσοστό λίπους στο σώμα μας και το δείκτη μάζα σώματος </h3>
+<p style="text-align:center"><b>Βήμα 1:Μετράμε το ύψος</b><br>
+<img src= "ypsos.jpg"><br>
+<b>Βήμα 2: Μετράμε την περιφέρεια της κοιλιάς</b><br>
+<img src= "koilia.jpg"><br>
+<b>Βήμα 3: Μετράμε την περιφέρεια του λαιμού</b><br>
+<img src= "laimos.jpg"><br>
+<b>Bήμα 4 μόνο όταν γίνεται μέτρηση σε γυναίκα</b><br>
+<img src="gofoi.jpg"><br><br>
+
+</p>
+	<form  method="post" style="text-align:center;">
+		<b>Το φύλο σας:</b><input  type="radio" onchange="checkClicked()" id="mgender" name="gender" value="male"> 'Άνδρας 	
+		<input type="radio" onchange="checkClicked()" id="fgender" name="gender" value="female"> Γυναίκα <br><br>
+		<b>Το βάρος σας(σε κιλά):</b><input style="width:200px; height:25px; border-radius:15px; border:1px solid black;" id="weight" type="text" name="weight" size="4" maxlength="3"><br>
+		<b>Το ύψος σας(σε εκατοστά):</b><input style="width:200px; height:25px; border-radius:15px; border:1px solid black;" id="height" type="text" name="height" size="4" maxlength="3" value="180"><br>
+		<b>Περίμετρος κοιλιάς(σε εκατοστά):</b><input style="width:200px; height:25px; border-radius:15px; border:1px solid black;" type="text" id="koilia" name="koilia" size="4" maxlength="3" value="90"><br>
+		<b>Περίμετρος λαιμού(σε εκατοστά):</b><input style="width:200px; height:25px; border-radius:15px; border:1px solid black;" type="text" id="laimos" name="laimos" size="4" maxlength="3" value="50"><br>
+		<b>Περίμετρος γοφών(σε εκατοστά):</b><input style="width:200px; height:25px; border-radius:15px; border:1px solid black;" type="text" id="gofoi" name="gofoi" size="4" maxlength="3" value="90"><br>
+		<input style="align:center; width:100px; height:25px; color:black;"type="button" onclick="javascript:metr();" id="button" value="Αποτελέσματα"><br>
+		<b>To bmi:</b><input style="width:200px; height:25px; border-radius:15px; border:1px solid black; " disabled type="text" id="bmi" name="bmi"><br>
+		<b>To ποσοστό λίπους:</b><input style="width:200px; height:25px; border-radius:15px; border:1px solid black;" disabled type="text" id="lipos" name="lipos"><br>
+	</form>
+
+<script>
+
+function checkClicked(){
+		if(document.getElementById("mgender").checked == true)
+			{
+			document.getElementById("gofoi").disabled = true;
+			}
+		else{
+			document.getElementById("gofoi").disabled = false;
+		}
+	}
+	</script>
+	<script>
+function bmimetr(){
+		var weight= document.getElementById("weight");
+		var weightvalue = parseFloat(weight.value);
+		var height= document.getElementById("height");
+		var heightvalue= parseFloat(height.value);
+		
+		var x = heightvalue * 0.01;
+		var y= Math.pow(x,2);
+		
+		var bmi= weightvalue / y ;
+		var n= bmi.toFixed(2);
+		document.getElementById("bmi").value = n.toString();
+	} 
+</script>
+<script>
+function liposmetr(){
+	var koilia= document.getElementById("koilia");
+	var koiliavalue= parseFloat(koilia.value);
+	var laimos= document.getElementById("laimos");
+	var laimosvalue= parseFloat(laimos.value);
+	var gofoi= document.getElementById("gofoi");
+	var gofoivalue= parseFloat(gofoi.value);
+	var height= document.getElementById("height");
+	var heightvalue= parseFloat(height.value);
+	
+	var afai= koiliavalue - laimosvalue;
+	var logafai= Math.log10(afai);
+	var afaipol= 86.010 * logafai;
+	var logha= Math.log10(heightvalue);
+	var pol= 70.041 * logha;
+	var afaigof= koiliavalue + gofoivalue - laimosvalue;
+	var logafaigof= Math.log10(afaigof);
+	var polgof= 163.205 * logafaigof;
+	var fpol= 97.648 * logha;
+	
+	if(document.getElementById("mgender").checked == true){
+		var lipos= afaipol - pol + 30.30;
+		
+		var l= lipos.toFixed(2);
+		document.getElementById("lipos").value= l.toString();}
+	else{
+		var lipos= polgof - fpol - 104.912;
+		var l= lipos.toFixed(2);
+		document.getElementById("lipos").value= l.toString();
+	}
+}
+
+</script>
+
+<script>
+
+
+var submitflg;
+function enter() {
+	if( ( document.getElementById("mgender").checked == false ) && ( document.getElementById("fgender").checked == false) ){
+	alert("Δεν επιλέξατε το φύλο σας");
+	submitflg=false;
+	}
+	else if(document.getElementById("height").value == ""){
+	alert("Δεν συμπληρώσατε το ύψος σας");
+	document.getElementById("height").focus();
+	submitflg=false;
+	}
+
+	else if(document.getElementById("weight").value == ""){
+	alert("Δεν συμπληρώσατε το βάρος σας");
+	document.getElementById("weight").focus();
+	submitflg=false;
+	}
+	
+	else if(document.getElementById("koilia").value == ""){
+	alert("Δεν συμπληρώσατε την περιφέρεια της κοιλιάς σας");
+	document.getElementById("koilia").focus();
+	submitflg=false;
+	}
+	
+	else if(document.getElementById("laimos").value == ""){
+	alert("Δεν συμπληρώσατε τη περίμετρο του λαιμού σας");
+	document.getElementById("laimos").focus();
+	submitflg=false;
+	}
+	
+	else if(document.getElementById("gofoi").value == ""){
+	alert("Δεν συμπληρώσατε την περίμετρο των γοφών σας");
+	document.getElementById("gofoi").focus();
+	submitflg=false;
+	}
+	
+	
+	else{
+		submitflg=true;
+	}
+	
+}
+</script>
+
+
+
+<script>
+function metr(){
+	bmimetr();
+	liposmetr();
+	enter();
+}
+
+</script>
+<footer>
+  <p>Created by: Wa.Sha.</p>
+  <p>Contact information: <a href="mailto:ibrisn@yahoo.com">ibrisn@yahoo.com</a>.</p>
+</footer>
+</body>
+</html>
